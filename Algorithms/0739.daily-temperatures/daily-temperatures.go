@@ -4,9 +4,7 @@ func dailyTemperatures(temperatures []int) []int {
 	lens := len(temperatures)
 	res := make([]int, lens)
 
-
 	// 删除栈顶元素
-
 	stack := make([]int, 0)
 	top := -1
 	for i := 0; i < lens; i++ {
@@ -17,11 +15,11 @@ func dailyTemperatures(temperatures []int) []int {
 			stack =  append(stack[:top], stack[top+1:]...)
 			top--
 		}
-
+		
+		// index进栈
 		top++
-		stack[top] = i
+		stack = append(stack, i)
 	}
-
 
 	return res
 }
